@@ -29,7 +29,7 @@ int i = 0;
 char *copyright = "Copyright (c) University of Cambridge 2003";
 char today[20];
 
-version_string = malloc(strlen(copyright));
+version_string = malloc(strlen(copyright)+1);
 strcpy(version_string, copyright);
 strcpy(version_string, this_version);
 sys_setversion(version_string);
