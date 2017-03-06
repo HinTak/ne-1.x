@@ -8,7 +8,7 @@
         
 FLAGS   = CC=gcc \
           CFLAGS="-Dunixwinsz \
-            -m486 -O2 -ansi -funsigned-char" \
+            -Wall -O2 -ansi -funsigned-char" \
           LIB_TERMINAL=-lcurses 
         
 newne:;   @make -f BaseMake $(FLAGS) $(TARGET)
