@@ -585,7 +585,7 @@ else if (tt_special == tt_special_ttpa)
   key_specialmap[1] = 0x0000000F;   /* shifted arrows */
   key_specialmap[2] = 0x0000000F;   /* ctrled arrows */
   }
-else if (tt_special == tt_special_xterm);
+else if (tt_special == tt_special_xterm)
   {
   key_specialmap[1] = 0x0000008F;   /* shifted tab, shifted arrows */
   key_specialmap[2] = 0x0000008F;   /* ctrl tab, ctrl arrows */
