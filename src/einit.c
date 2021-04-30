@@ -17,8 +17,8 @@ termination code. */
 #include "cmdhdr.h"
 
 
-static char arg_from_buffer[100];
-static char arg_to_buffer[100];
+static char arg_from_buffer[4096];
+static char arg_to_buffer[4096];
 
 static jmp_buf rdline_env;
 
@@ -433,7 +433,7 @@ enum { arg_from,  arg_to=9,   arg_id,     arg_help,   arg_window,
        arg_binw,  arg_stream, arg_readonly, arg_logging, arg_end };
 
 int i, rc;
-char argstring[256];
+char argstring[4096];
 arg_result results[50];
 
 strcpy(argstring,
