@@ -11,6 +11,6 @@
 things that have to get imported into the main ehdr.h file
 for system-specific reasons. */
 
-/* There aren't any for Linux.
+/* There aren't any for Linux. */
 
 /* End of elocal.linux.h */
