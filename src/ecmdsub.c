@@ -437,7 +437,7 @@ if (main_screenOK && (int)strlen(buff) > window_width)
   if (at != NULL)    /* just in case */
     {
     memmove(at+2, at+2+shortenby, (int)strlen(buff) - ((at - buff) + 2 + shortenby) + 1);
-    strncpy(at+2, "...", 3);
+    memcpy(at+2, "...", 3); /* over-write the beginning of strings with "..." */
     }
   }
 
