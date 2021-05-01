@@ -396,7 +396,7 @@ int i;
 for (i = 0; i <= window_depth; i++)
   {
   linestr *line = window_vector[i];
-  if (line != NULL && (int)line > 1) line->flags |= lf_shn;
+  if (line != NULL && (long int)line > 1) line->flags |= lf_shn;
   }
 main_drawgraticules |= dg_both;
 scrn_display(FALSE);

@@ -71,7 +71,7 @@ switch (option)
       {
       line = window_vector[i];
       if (line == main_current) row = i;
-      if (line != NULL && (int)line > 1) eoflastline = ((line->flags & lf_eof) != 0);
+      if (line != NULL && (long int)line > 1) eoflastline = ((line->flags & lf_eof) != 0);
       }
 
     if (row < 0) return;                /* current line off screen */
