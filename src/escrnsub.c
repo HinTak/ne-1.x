@@ -31,7 +31,7 @@ cursor_max = cursor_offset + window_width;
 if (changemargin) main_rmargin = window_width;
 
 window_vector = store_Xget((screen_max_row+1)*sizeof(linestr *));
-for (i = 0; i <= window_depth; i++) window_vector[i] = NULL;
+for (i = 0; i <= screen_max_row + 1; i++) window_vector[i] = NULL;
 }
 
 
