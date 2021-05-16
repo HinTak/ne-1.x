@@ -254,7 +254,7 @@ int keyoffset[30];
 int argmax = 0;
 int argindex = 1;
 LONGINT argcount = 1;
-int keynumber = 0;
+int keymax = 0;
 int i, ch;
 
 /* We first scan the key string and create, in the presence field,
@@ -284,7 +284,7 @@ while ((ch = keystring[++i]) != 0)
         int n;
         results[argmax].presence |= rdargflag_d;  /* flag default exists */
         if (sscanf(keystring+i+2, "%d%n", &(results[argmax].data.number), &n) == 0)
-          return arg_error(results, findkey(keynumber, keystring,
+          return arg_error(results, findkey(keymax, keystring,
             (char *)(results+2)), "is followed by an unknown option"), -1;
         i += n + 1;
         }
@@ -298,7 +298,7 @@ while ((ch = keystring[++i]) != 0)
       if (argcount == 0) argcount = 1;
       results[argmax].presence |= argcount << 16;
       }
-    else return arg_error(results, findkey(keynumber, keystring,
+    else return arg_error(results, findkey(keymax, keystring,
       (char *)(results+2)), "is followed by an unknown option"), -1;
     }
 
@@ -308,8 +308,7 @@ while ((ch = keystring[++i]) != 0)
     for (j = 1; j < argcount; j++)
       results[++argmax].presence = argflag_presence_mask;
     results[++argmax].presence = arg_present_not;
-    keynumber++;
-    keyoffset[keynumber] = argmax;
+    keyoffset[++keymax] = argmax;
     argcount = 1;
     }
   }
@@ -321,7 +320,7 @@ for (i = 0; i <= argmax; i++)
   LONGINT argflags = results[i].presence;
   int keynumber = 0;
   int j;
-  for (j = 0; j < 30; j++)
+  for (j = 0; j < keymax; j++)
      if (keyoffset[j] == i) { keynumber = j; break; }
   if ((argflags & (rdargflag_s + rdargflag_n)) == rdargflag_s + rdargflag_n)
     return arg_error(results, findkey(keynumber, keystring, (char *)(results+2)),
